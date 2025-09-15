@@ -26,11 +26,11 @@ class JobScraper:
         while True:
             url = self.API_URL_TEMPLATE.format(page=page)
             logging.info(f"Fetching page {page}...")
-            response = requests.get(url)
-            if response.status_code != 200:
-                logging.error(
-                    f"Failed to fetch page {page}: {response.status_code}"
-                )
+            try:
+                response = requests.get(url)
+                response.raise_for_status()
+            except requests.RequestException as e:
+                logging.error(f"Failed to fetch page {page}: {e}")
                 break
 
             data = response.json()
@@ -47,7 +47,7 @@ class JobScraper:
     def process_jobs(self):
         for job in self.jobs:
             job.pop("image", None)
-            job["jobUrl"] = self.BASE_URL + job["jobUrl"]
+            job["job_url"] = self.BASE_URL + job["jobUrl"]
 
     def save_to_json(self, filename="task1_results.json"):
         final_data = {"jobs": self.jobs}
