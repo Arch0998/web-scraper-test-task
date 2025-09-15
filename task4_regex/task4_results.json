@@ -1,0 +1,19 @@
+{
+    "urls": [
+        "https://ain.ua/",
+        "https://ain.ua/2019/03/25/fotoreportazh-jooble/",
+        "https://dou.ua/lenta/articles/dou-revisor-jooble-2/",
+        "https://hiring.jooble.org/",
+        "https://hiring.jooble.org/"
+    ],
+    "emails": [
+        "yulyia.lysnianskaia@jooble.com"
+    ],
+    "bots": [
+        "@jooblecandidate_bot",
+        "@jooblecandidate_bot"
+    ],
+    "parentheses": [
+        "inspector"
+    ]
+}
